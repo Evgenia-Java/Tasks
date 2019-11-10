@@ -4,16 +4,16 @@
     <title>Create task</title>
 </head>
 <body>
-<form action="/createtask" method="get">
+<form action="/createTask" method="get">
     Summary <input type="string" name="summary"><br>
     Assignee <input type="string" name="assignee"><br>
-    //Календарь    Start Date <input type="date" name="startDate"><br>
-    //Календарь    End Date <input type="date" name="endDate"><br>
+    Start Date <input type="string" name="startDate" placeholder="yyyy-MM-dd"><br>
+    End Date <input type="string" name="endDate" placeholder="yyyy-MM-dd"><br>
     <p>
     <table>
         <tr>
             <th><small>
-                <input type="submit" name="createTask" value="Add new Task">    //Открытие страницы с поиском задач
+                <input type="submit" name="createTask" value="Add new Task">
             </small>
     </table>
 </form>

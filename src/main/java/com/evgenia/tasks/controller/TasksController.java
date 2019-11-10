@@ -28,17 +28,17 @@ public class TasksController {
     }
 
     @RequestMapping(value = "/createTask", method = RequestMethod.GET)
-    public String createTask(Model model){
+    public String addTask(Model model){
         return "createTask";
     }
 
-    @RequestMapping(value = "/addTask", method = RequestMethod.POST)
+    @RequestMapping(value = "/createTask", method = RequestMethod.POST)
     public String addTask(Model model,
-                          @RequestParam(name = "summary", defaultValue = "") String summary,
-                          @RequestParam(name = "assignee", defaultValue = "") String assignee,
-                          @RequestParam(name = "startDate",  defaultValue = "") String startDate,
-                          @RequestParam(name = "endDate",  defaultValue = "") String endDate) {
-        Task addTask = taskDAO.addTask(summary, assignee, startDate, endDate);
+                          @RequestParam(name = "summary", required = false, defaultValue = "") String summary,
+                          @RequestParam(name = "assignee", required = false, defaultValue = "") String assignee,
+                          @RequestParam(name = "startDate",  required = false, defaultValue = "") String startDate,
+                          @RequestParam(name = "endDate",  required = false, defaultValue = "") String endDate) {
+        taskDAO.addTask(summary, assignee, startDate, endDate);
         return "redirect:/tasks";
     }
 

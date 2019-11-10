@@ -4,8 +4,6 @@ import com.evgenia.tasks.jdbc.TaskMapper;
 import com.evgenia.tasks.model.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-
-import java.util.Date;
 import java.util.List;
 
 public class TaskDAOImpl implements TaskDAO {
@@ -36,6 +34,8 @@ public class TaskDAOImpl implements TaskDAO {
     }
 
     public void addTask(String summary, String assignee, String startDate, String endDate){
-
+        jdbcTemplate.update("INSERT INTO tasks VALUES (?, ?, ?, ?)",
+                    summary, assignee, startDate, endDate, new TaskMapper()
+        );
     }
 }
