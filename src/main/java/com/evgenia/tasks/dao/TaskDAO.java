@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface TaskDAO {
 
-    List<Task> getAllTasks();
+    List<Task> findTask(String assignee, String startDate, String endDate);
+    Task addTask(String summary, String assignee, String startDate, String endDate);
 }

@@ -4,15 +4,21 @@
 
     <context:component-scan base-package="com.evgenia" />
     <context:annotation-config />
+
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/jsp/" />
         <property name="suffix" value=".jsp" />
     </bean>
 
+
     <bean id="taskDAO" class="com.evgenia.tasks.dao.TaskDAOImpl"/>
+
+
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource"/>
     </bean>
+
+
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
@@ -20,4 +26,6 @@
         <property name="username" value="root"/>
         <property name="password" value="12345678"/>
     </bean>
+
+
 </beans>
