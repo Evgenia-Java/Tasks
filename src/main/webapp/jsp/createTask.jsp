@@ -4,7 +4,7 @@
     <title>Create task</title>
 </head>
 <body>
-<form action="/createTask" method="get">
+<form action="/createTask" method="post">
     Summary <input type="string" name="summary"><br>
     Assignee <input type="string" name="assignee"><br>
     Start Date <input type="string" name="startDate" placeholder="yyyy-MM-dd"><br>
@@ -13,7 +13,7 @@
     <table>
         <tr>
             <th><small>
-                <input type="submit" name="createTask" value="Add new Task">
+                <input type="submit" name="createTask" value="Add new Task" >
             </small>
     </table>
 </form>
