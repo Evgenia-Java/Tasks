@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @Controller
@@ -37,7 +38,7 @@ public class TasksController {
                           @RequestParam(name = "summary", required = false, defaultValue = "") String summary,
                           @RequestParam(name = "assignee", required = false, defaultValue = "") String assignee,
                           @RequestParam(name = "startDate",  required = false, defaultValue = "") String startDate,
-                          @RequestParam(name = "endDate",  required = false, defaultValue = "") String endDate) {
+                          @RequestParam(name = "endDate",  required = false, defaultValue = "") String endDate){
         taskDAO.addTask(summary, assignee, startDate, endDate);
         return "redirect:/tasks";
     }

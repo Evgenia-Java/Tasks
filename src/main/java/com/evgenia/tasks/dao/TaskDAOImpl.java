@@ -34,8 +34,7 @@ public class TaskDAOImpl implements TaskDAO {
     }
 
     public void addTask(String summary, String assignee, String startDate, String endDate){
-        jdbcTemplate.update("INSERT INTO tasks VALUES (?, ?, ?, ?)",
-                    summary, assignee, startDate, endDate, new TaskMapper()
-        );
+        String sql = "INSERT INTO tasks VALUES (?, ?, ?, ?)";
+        jdbcTemplate.update(sql, summary, assignee, startDate, endDate, new TaskMapper());
     }
 }
