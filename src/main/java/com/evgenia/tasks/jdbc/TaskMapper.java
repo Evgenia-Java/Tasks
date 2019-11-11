@@ -2,7 +2,6 @@ package com.evgenia.tasks.jdbc;
 
 import com.evgenia.tasks.model.Task;
 import org.springframework.jdbc.core.RowMapper;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
