@@ -11,7 +11,7 @@ StartDate <input type="string" name="startDate" size="10" placeholder="yyyy-MM-d
 EndDate <input type="string" name="endDate" size="10" placeholder="yyyy-MM-dd" value="${endDate}"><br>
 Assignee <input type="string" name="assignee" value="${assignee}"><br>
 Period <select name="period">
-    <option>Last Quarter</option>
+    <option>Select period</option>
     <option value="Last Quarter">lastQuarter</option>
     <option value="Last Month">lastMonth</option>
     <option value="Last Week">lastWeek</option>

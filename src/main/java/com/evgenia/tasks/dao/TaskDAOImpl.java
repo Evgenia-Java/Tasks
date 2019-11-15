@@ -4,6 +4,8 @@ import com.evgenia.tasks.jdbc.TaskMapper;
 import com.evgenia.tasks.model.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import java.time.LocalDate;
 import java.util.List;
 
 public class TaskDAOImpl implements TaskDAO {
@@ -12,7 +14,12 @@ public class TaskDAOImpl implements TaskDAO {
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public List<Task> findTask(String assignee, String startDate, String endDate){
+    public List<Task> findTask(String assignee, LocalDate startDate, LocalDate endDate, String period){
+        String startDateString = startDate.toString();
+        String endDateString = endDate.toString();
+        Task task = new Task();
+        task.autocomplete(period);
+
         String sql = "SELECT * FROM tasks";
         boolean useAnd = false;
         if (!assignee.isEmpty()){
@@ -20,12 +27,12 @@ public class TaskDAOImpl implements TaskDAO {
             useAnd = true;
         }
 
-        if (!startDate.isEmpty()){
+        if (!startDateString.isEmpty()){
             sql += (useAnd ? " AND" : " WHERE") + " start_date = '" + startDate + "'";
             useAnd = true;
         }
 
-        if (!endDate.isEmpty()){
+        if (!endDateString.isEmpty()){
             sql += (useAnd ? " AND" : " WHERE") + " end_date = '" + endDate + "'";
             useAnd = true;
         }
@@ -34,7 +41,7 @@ public class TaskDAOImpl implements TaskDAO {
     }
 
     @Override
-    public void createTask(String summary, String assignee, String startDate, String endDate){
+    public void createTask(String summary, String assignee, LocalDate startDate, LocalDate endDate){
         String sql = "INSERT INTO tasks (summary, start_date, end_date, assignee) VALUES ('" +
                 summary + "', '" + startDate + "', '" + endDate + "', '" + assignee + "')";
         jdbcTemplate.update(sql);
