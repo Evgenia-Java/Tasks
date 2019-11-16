@@ -21,14 +21,13 @@ public class TasksController {
                             @RequestParam(name = "assignee", required = false, defaultValue = "") String assignee,
                             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDate startDate,
                             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDate endDate,
-//                            @RequestParam(name = "startDate", required = false, defaultValue = "") LocalDate startDate,
-//                            @RequestParam(name = "endDate", required = false, defaultValue = "") LocalDate endDate,
                             @RequestParam(name = "period", required = false, defaultValue = "") String period) {
         List<Task> taskList = taskDAO.findTask(assignee, startDate, endDate, period);
         model.addAttribute("taskList", taskList);
         model.addAttribute("assignee", assignee);
         model.addAttribute("startDate", startDate);
         model.addAttribute("endDate", endDate);
+        model.addAttribute("period", period);
         return "tasks";
     }
 
@@ -46,19 +45,6 @@ public class TasksController {
         taskDAO.createTask(summary, assignee, startDate, endDate);
         return "redirect:/tasks";
     }
-
-//    protected Map referenceData(MultipartHttpServletRequest request) throws Exception{
-//        Map referenceData = new HashMap();
-//        Map<String,String> period = new LinkedHashMap<String, String>();
-//        period.put("Last Quarter", "Last Quarter");
-//        period.put("Last Month","Last Month");
-//        period.put("Last Week","Last Week");
-//        period.put("Current Quarter to Date","Current Quarter to Date");
-//        period.put("Current Month to Date","Current Month to Date");
-//        period.put("Current Week to Date","Current Week to Date");
-//        referenceData.put("period", period);
-//        return referenceData;
-//    }
 
 
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class TaskDAOImpl implements TaskDAO {
@@ -15,8 +16,8 @@ public class TaskDAOImpl implements TaskDAO {
 
     @Override
     public List<Task> findTask(String assignee, LocalDate startDate, LocalDate endDate, String period){
-        String startDateString = startDate.toString();
-        String endDateString = endDate.toString();
+        String startDateString = startDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        String endDateString = endDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         Task task = new Task();
         task.autocomplete(period);
 

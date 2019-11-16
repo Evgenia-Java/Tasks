@@ -12,8 +12,8 @@ public class TaskMapper implements RowMapper<Task> {
         Task task = new Task();
         task.setId(resultSet.getInt("id"));
         task.setSummary(resultSet.getString("summary"));
-        task.setStartDate(LocalDate.parse(resultSet.getString("start_date")));
-        task.setEndDate(LocalDate.parse(resultSet.getString("end_date")));
+        task.setStartDate(LocalDate.parse(("start_date")));
+        task.setEndDate(LocalDate.parse(("end_date")));
         task.setAssignee(resultSet.getString("assignee"));
         return task;
     }
