@@ -7,9 +7,9 @@
 </head>
 <body>
 <form action = "/tasks" method="get">
-StartDate <input type="string" name="startDate" size="10" placeholder="yyyy-MM-dd" value="${startDate}"><br>
-EndDate <input type="string" name="endDate" size="10" placeholder="yyyy-MM-dd" value="${endDate}"><br>
-Assignee <input type="string" name="assignee" value="${assignee}"><br>
+StartDate <input type="text" name="startDate" size="10" placeholder="yyyy/MM/dd" value="${startDate}"><br>
+EndDate <input type="text" name="endDate" size="10" placeholder="yyyy/MM/dd" value="${endDate}"><br>
+Assignee <input type="text" name="assignee" value="${assignee}"><br>
 Period <select name="period">
     <option>Select period</option>
     <option value="Last Quarter">lastQuarter</option>

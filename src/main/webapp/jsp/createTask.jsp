@@ -18,7 +18,9 @@
     <script type="text/javascript">
         $(function() {
 
-            $('#dateStart').datepicker();
+            $('#dateStart').datepicker({
+                format: "yyyy/MM/dd"
+            });
 
         });
     </script>
@@ -34,23 +36,25 @@
     <script type="text/javascript">
         $(function() {
 
-            $('#dateEnd').datepicker();
+            $('#dateEnd').datepicker({
+                format: "yyyy/MM/dd"
+            });
 
         });
     </script>
 </head>
 <body>
 <form action="/createTask" method="post">
-    Summary <input type="string" name="summary"><br>
-    Assignee <input type="string" name="assignee"><br>
+    Summary <input type="text" name="summary"><br>
+    Assignee <input type="text" name="assignee"><br>
     <form>
         <div class="ui-widget">
-            <label for="dateStart">Start Date </label><input id="dateStart" placeholder="yyyy-MM-dd"/>
+            <label for="dateStart">Start Date </label><input type="text" id="dateStart" pattern="yyyy/MM/dd" placeholder="yyyy/MM/dd"/>
         </div>
     </form>
     <form>
         <div class="ui-widget">
-            <label for="dateEnd">End Date </label><input id="dateEnd" placeholder="yyyy-MM-dd"/>
+            <label for="dateEnd">End Date </label><input type="text" id="dateEnd" pattern="yyyy/MM/dd" placeholder="yyyy/MM/dd"/>
         </div>
     </form>
     <p>
