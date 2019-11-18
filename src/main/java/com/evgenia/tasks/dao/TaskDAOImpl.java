@@ -16,7 +16,7 @@ public class TaskDAOImpl implements TaskDAO {
 
     @Override
     public List<Task> findTask(String assignee, LocalDate startDate, LocalDate endDate, String period){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         String startDateString = startDate.format(formatter);
         String endDateString = endDate.format(formatter);
         Task task = new Task();
